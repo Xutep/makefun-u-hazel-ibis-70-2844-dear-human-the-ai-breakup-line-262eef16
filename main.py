@@ -16,6 +16,8 @@ LINE = (
 
 def main() -> None:
     text = LINE.strip()
+    if "\n" in text or "\r" in text:
+        raise ValueError("entry must be a single line")
     if not (1 <= len(text) <= 200):
         raise ValueError("entry must be 1-200 characters, got %d" % len(text))
     if not text.strip():
